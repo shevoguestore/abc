@@ -1,34 +1,297 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>मेरी पहली वेबसाइट</title>
-    <link rel="stylesheet" href="style.css">
+    <title>PayConnect - Customer Support</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0088cc;
+            --secondary: #00cc88;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            margin: 0;
+            background-color: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        .tagline {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .support-container {
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .support-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 48px;
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+        
+        .issue-card {
+            background: var(--light);
+            border-left: 4px solid var(--accent);
+            padding: 24px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .issue-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .issue-title {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--primary);
+        }
+        
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+        
+        .contact-method {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .contact-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contact-title {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,136,204,0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,136,204,0.4);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 40px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-link {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .support-card {
+                padding: 32px 24px;
+            }
+            
+            .contact-method {
+                padding: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>स्वागत है! 🙏</h1>
-        <p>यह मेरा पहला वेब पेज है</p>
+        <div class="header-content container">
+            <div class="logo">
+                <i class="fas fa-wallet"></i>
+                PayConnect
+            </div>
+            <p class="tagline">Fast, secure payments with 24/7 customer support when you need it</p>
+        </div>
     </header>
-
-    <section class="features">
-        <div class="feature-box">
-            <h2>HTML</h2>
-            <p>वेबसाइट की बुनियाद सीखें</p>
+    
+    <main class="container">
+        <div class="support-container">
+            <div class="support-card">
+                <h2 class="section-title">How Can We Help You Today?</h2>
+                
+                <div class="issue-card">
+                    <h3 class="issue-title">
+                        <i class="fas fa-exchange-alt"></i>
+                        Payment Issues
+                    </h3>
+                    <p>Having trouble with transactions or money transfers? Our team can investigate and resolve payment-related problems.</p>
+                </div>
+                
+                <div class="issue-card">
+                    <h3 class="issue-title">
+                        <i class="fas fa-user-shield"></i>
+                        Account Security
+                    </h3>
+                    <p>Locked out of your account or suspect unauthorized activity? We'll help secure your account immediately.</p>
+                </div>
+                
+                <div class="issue-card">
+                    <h3 class="issue-title">
+                        <i class="fas fa-question-circle"></i>
+                        General Questions
+                    </h3>
+                    <p>Get answers about our services, fees, or features from our knowledgeable support staff.</p>
+                </div>
+                
+                <div class="contact-options">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3 class="contact-title">Phone Support</h3>
+                        <p>Speak directly with our support team for immediate assistance</p>
+                        <a href="tel:+18005551234" class="btn">Call Now</a>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="contact-title">Email Us</h3>
+                        <p>Send us details about your issue for a thorough response</p>
+                        <a href="mailto:support@payconnect.example" class="btn">Send Email</a>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <h3 class="contact-title">Live Chat</h3>
+                        <p>Get instant answers through our 24/7 chat support</p>
+                        <a href="#chat" class="btn">Start Chat</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="feature-box">
-            <h2>CSS</h2>
-            <p>डिज़ाइन बनाना सीखें</p>
-        </div>
-        <div class="feature-box">
-            <h2>JavaScript</h2>
-            <p>इंटरएक्टिव बनाएं</p>
-        </div>
-    </section>
-
+    </main>
+    
     <footer>
-        <p>© 2024 मेरी वेबसाइट. सर्वाधिकार सुरक्षित.</p>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2024 PayConnect. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Help Center</a>
+                    <a href="#" class="footer-link">Security</a>
+                    <a href="#" class="footer-link">Fees</a>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
